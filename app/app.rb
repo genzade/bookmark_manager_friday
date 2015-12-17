@@ -5,6 +5,10 @@ require_relative 'data_mapper_setup'
 require 'byebug'
 
 class Bookmark < Sinatra::Base
+  get '/' do
+    redirect '/links'
+  end
+
   get '/links' do
     @links = Link.all
     erb :'links/index'
@@ -16,8 +20,9 @@ class Bookmark < Sinatra::Base
 
   post '/links' do
     link = Link.create(url: params[:url], title: params[:title])
-    tag = Tag.create(tags: params[:tags])
-    link.tags << tag
+    params[:tags].split.each do |append|
+      link.tags << Tag.create(tags: append)
+    end
     link.save
     redirect '/links'
   end

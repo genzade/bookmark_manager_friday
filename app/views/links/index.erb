@@ -4,7 +4,7 @@
     <br>
     <li>
       Title: <%= link.title %>
-      URL: <%= link.url %>
+      URL: <%= "<a href='https://#{link.url}'>" + link.url + "</a>" %>
       <br>
       Tags: <%= link.tags.map(&:tags).join("") %>
     </li>
