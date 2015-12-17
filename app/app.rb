@@ -29,15 +29,6 @@ class Bookmark < Sinatra::Base
     erb :'links/index'
   end
 
-  # get '/tags/bubbles' do
-  #   @links = Link.all(tags: [tags: 'bubbles'])
-  #   # @bubbles = @links.tags.map(&:tags)
-  #   # @result = ""
-  #   # @bubbles.select{|a| @result << a if a == 'bubbles' || 'Bubbles'}
-  #   # # require 'byebug'; byebug
-  #   erb :'links/index'
-  # end
-
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
